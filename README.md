@@ -1,4 +1,4 @@
-QuickMed: Online Clinic Platform
+QuickMed - Online Clinic Platform
 
 Description:
 
