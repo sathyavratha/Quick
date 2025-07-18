@@ -1,5 +1,7 @@
 QuickMed: Online Clinic Platform
+
 Description:
+
 QuickMed is an online clinic platform designed to bridge the communication gap between patients and doctors. It facilitates remote consultations, allowing patients to connect with healthcare professionals conveniently. The platform includes appointment scheduling, patient-doctor chat, and plans for real-time video consultations as future advancements. The backend is seamlessly integrated with Firebase for database management and hosting.
 
 Features:
