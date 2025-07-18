@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMed - Change Password</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient-start: #6380e9;
+            --gradient-end: #4539c3;
+            --container-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+            --label-color: #555;
+            --input-border: #ddd;
+            --input-bg: #f9f9f9;
+            --focus-border: #7577ff;
+            --button-gradient-start: #544ab3;
+            --button-gradient-end: #262b75;
+            --button-hover-start: #504cb6;
+            --button-hover-end: #877eff;
+            --border-radius: 15px;
+            --input-radius: 8px;
+            --shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+
+        .password-container {
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .password-container h2 {
+            color: var(--text-color);
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative; /* For eye icon positioning */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--label-color);
+            font-size: 1.1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--input-border);
+            border-radius: var(--input-radius);
+            font-size: 1em;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--focus-border);
+            box-shadow: 0 0 5px rgba(117, 142, 255, 0.5);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 60%; /* Adjust vertically to align with input */
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+            font-size: 1.1em;
+            user-select: none;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+            color: white;
+            border: none;
+            border-radius: var(--input-radius);
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(to right, var(--button-hover-start), var(--button-hover-end));
+            transform: translateY(-2px);
+        }
+
+        .form-group button:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .password-container {
+                padding: 30px;
+                margin: 20px;
+            }
+            .password-container h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            .form-group label {
+                font-size: 1em;
+            }
+            .form-group input,
+            .form-group button {
+                padding: 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <h2>Change Password</h2>
+        <form id="changePasswordForm" action="#" method="post">
+            <div class="form-group">
+                <label for="username">Username/Email</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+                <span id="usernameError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="current-password">Current Password</label>
+                <input type="password" id="current-password" name="current-password" placeholder="Enter current password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('current-password')">👁️</span>
+                <span id="currentPasswordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="new-password">New Password</label>
+                <input type="password" id="new-password" name="new-password" placeholder="Enter new password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('new-password')">👁️</span>
+                <span id="newPasswordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm New Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility('confirm-password')">👁️</span>
+                <span id="confirmPasswordError" class="error-message"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit">Change Password</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="changepw.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMed - Login</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS for login.html goes here. */
+        /* Ensure this CSS is consistent with your theme. */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom right, #6380e9, #4539c3);
+            color: #333;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .login-container h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            background-color: #f9f9f9;
+            color: #333;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #7577ff;
+            box-shadow: 0 0 5px rgba(117, 142, 255, 0.5);
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, #544ab3, #262b75);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .form-group button:hover {
+            background: linear-gradient(to right, #504cb6, #877eff);
+            transform: translateY(-2px);
+        }
+
+        .form-group button:active {
+            transform: translateY(0);
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .signup-link a {
+            color: #4539c3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* New style for error message */
+        .login-error-message {
+            color: #dc3545; /* Bootstrap's red for errors */
+            font-size: 0.9em;
+            margin-top: -10px; /* Adjust spacing */
+            margin-bottom: 15px;
+            text-align: center;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login to QuickMed</h2>
+        <form id="loginForm" action="dashboard.html" method="post">
+            <div class="form-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div id="loginErrorMessage" class="login-error-message"></div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        <p class="signup-link">Don't have an account? <a href="signin.html">Sign Up</a></p>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
